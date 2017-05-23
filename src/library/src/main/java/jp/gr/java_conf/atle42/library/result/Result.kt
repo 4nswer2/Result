@@ -16,6 +16,10 @@ class Result<out T> private constructor(val value: T?, val error: Error?){
 		return this
 	}
 
+	inline fun <U> map(converter: (Result<T>) -> Result<U>): Result<U> {
+		return converter(this)
+	}
+
 	inline fun <U> mapValue(converter: (T) -> U): Result<U> {
 		when (value) {
 			null -> return Result(error as Error)

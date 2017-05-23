@@ -7,6 +7,6 @@
     }
 
     dependencies {
-      compile 'jp.gr.java_conf.atle42.library:result:0.0.1'
+      compile 'jp.gr.java_conf.atle42.library:result:0.0.2'
     }
 

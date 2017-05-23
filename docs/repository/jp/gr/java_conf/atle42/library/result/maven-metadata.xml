@@ -3,10 +3,11 @@
   <groupId>jp.gr.java_conf.atle42.library</groupId>
   <artifactId>result</artifactId>
   <versioning>
-    <release>0.0.1</release>
+    <release>0.0.2</release>
     <versions>
       <version>0.0.1</version>
+      <version>0.0.2</version>
     </versions>
-    <lastUpdated>20170523054645</lastUpdated>
+    <lastUpdated>20170523103357</lastUpdated>
   </versioning>
 </metadata>

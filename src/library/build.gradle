@@ -9,7 +9,7 @@ uploadArchives {
             repository url: "file://${projectDir}/../../docs/repository"
             pom.groupId = 'jp.gr.java_conf.atle42.library'
             pom.artifactId = 'result'
-            pom.version = '0.0.1'
+            pom.version = '0.0.2'
         }
     }
 }
