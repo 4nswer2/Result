@@ -16,11 +16,9 @@ public class ResultTest {
 				.success(it -> {
 					System.out.println(it);
 					assertEquals("success", it);
-					return Unit.INSTANCE;
 				})
 				.failure(it -> {
 					System.out.println(it.getMessage());
-					return Unit.INSTANCE;
 				});
 	}
 
@@ -30,12 +28,10 @@ public class ResultTest {
 		failure
 				.success(it -> {
 					System.out.println(it);
-					return Unit.INSTANCE;
 				})
 				.failure(it -> {
 					System.out.println(it.getMessage());
 					assertEquals("failure", it.getMessage());
-					return Unit.INSTANCE;
 				});
 	}
 }

@@ -1,7 +1,7 @@
 package jp.gr.java_conf.atle42.library.result
 
 
-class Result<out T> private constructor(val value: T?, val error: Error?){
+class Result<T> private constructor(val value: T?, val error: Error?){
 
 	constructor(value: T)     : this(value, null)
 	constructor(error: Error) : this(null, error)
@@ -11,7 +11,17 @@ class Result<out T> private constructor(val value: T?, val error: Error?){
 		return this
 	}
 
+	fun success(action: Action<T>): Result<T> {
+		value?.let { action(value) }
+		return this
+	}
+
 	fun failure(action: (Error) -> Unit): Result<T> {
+		error?.let { action(error) }
+		return this
+	}
+
+	fun failure(action: Action<Error>): Result<T> {
 		error?.let { action(error) }
 		return this
 	}
@@ -32,5 +42,9 @@ class Result<out T> private constructor(val value: T?, val error: Error?){
 			null -> return Result(value as T)
 			else -> return Result(converter(error))
 		}
+	}
+
+	interface Action<T> {
+		operator fun invoke(value: T)
 	}
 }
