@@ -3,13 +3,19 @@ apply plugin: 'kotlin-android'
 apply plugin: 'me.tatarka.retrolambda'
 apply plugin: 'maven'
 
+ext {
+    PUBLISH_GROUP_ID = 'jp.gr.java_conf.atle42.library'
+    PUBLISH_ARTIFACT_ID = 'result'
+    PUBLISH_VERSION = '0.0.4'
+}
+
 uploadArchives {
     repositories {
         mavenDeployer {
             repository url: "file://${projectDir}/../../docs/repository"
-            pom.groupId = 'jp.gr.java_conf.atle42.library'
-            pom.artifactId = 'result'
-            pom.version = '0.0.3'
+            pom.groupId = "$PUBLISH_GROUP_ID"
+            pom.artifactId = "$PUBLISH_ARTIFACT_ID"
+            pom.version = "$PUBLISH_VERSION"
         }
     }
 }
@@ -17,6 +23,10 @@ uploadArchives {
 android {
     compileSdkVersion 25
     buildToolsVersion "25.0.3"
+
+    compileOptions {
+        kotlinOptions.freeCompilerArgs += ['-module-name', "$PUBLISH_GROUP_ID.$PUBLISH_ARTIFACT_ID"]
+    }
 
     defaultConfig {
         minSdkVersion 21
