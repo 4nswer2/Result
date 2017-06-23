@@ -6,7 +6,7 @@ class Result<T> private constructor(val value: T?, val error: Error?){
 	constructor(value: T)     : this(value, null)
 	constructor(error: Error) : this(null, error)
 
-	fun success(action: (T) -> Unit): Result<T> {
+	inline fun success(action: (T) -> Unit): Result<T> {
 		value?.let { action(value) }
 		return this
 	}
@@ -16,7 +16,7 @@ class Result<T> private constructor(val value: T?, val error: Error?){
 		return this
 	}
 
-	fun failure(action: (Error) -> Unit): Result<T> {
+	inline fun failure(action: (Error) -> Unit): Result<T> {
 		error?.let { action(error) }
 		return this
 	}

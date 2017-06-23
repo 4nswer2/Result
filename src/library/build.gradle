@@ -6,7 +6,7 @@ apply plugin: 'maven'
 ext {
     PUBLISH_GROUP_ID = 'jp.gr.java_conf.atle42.library'
     PUBLISH_ARTIFACT_ID = 'result'
-    PUBLISH_VERSION = '0.0.4'
+    PUBLISH_VERSION = '0.0.5'
 }
 
 uploadArchives {
